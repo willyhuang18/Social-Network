@@ -2,6 +2,12 @@ const {Users} = require('../models/user');
 
 
 module.exports ={
+    // Create new User
+    createUsers(req, res) {
+        Users.create(req.body)
+        .then(response => res.json(response))
+        .catch(err => res.status(400).json(err));
+    },
     // get all User
     getAllUsers(req, res) {
         Users.find({})
