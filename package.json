@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node server.js"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/willyhuang18/Social-Network.git"
@@ -20,6 +19,7 @@
   "homepage": "https://github.com/willyhuang18/Social-Network#readme",
   "dependencies": {
     "express": "^4.17.3",
+    "moment": "^2.29.1",
     "mongoose": "^6.2.3",
     "node": "^17.4.0"
   }
