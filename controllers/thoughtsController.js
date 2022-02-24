@@ -46,4 +46,31 @@ module.exports ={
             res.sendStatus(400);
         });
     },
+    // Update thought by ID
+    updateThoughts(req, res) {
+        Thoughts.findOneAndUpdate({_id: req.params.id}, body, {new: true, runValidators: true})
+        .populate({path: 'reactions', select: '-__v'})
+        .select('-___v')
+        .then(response => {
+            if (!response) {
+                res.status(404).json({message: 'No thoughts is found with this ID!'});
+                return;
+            }
+                res.json(response);
+        })
+        .catch(err => res.json(err));
+    },
+
+    // Delete thought by ID
+    deleteThoughts(req, res) {
+        Thoughts.findOneAndDelete({_id: req.params.id})
+        .then(response => {
+            if (!response) {
+                res.status(404).json({message: 'No thoughts is found with this ID!'});
+                return;
+            }
+            res.json(response);
+            })
+            .catch(err => res.status(400).json(err));
+    },
 };
