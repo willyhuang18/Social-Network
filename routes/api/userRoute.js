@@ -10,3 +10,8 @@ const {
     addFriend,
     deleteFriend
   } = require('../../controllers/userController');
+
+//indicate the get and post route for user
+router.route('/').get(getAllUsers).post(createUsers);
+
+module.exports = router; 
