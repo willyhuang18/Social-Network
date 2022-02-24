@@ -1,0 +1,26 @@
+{
+  "name": "social-network",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willyhuang18/Social-Network.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willyhuang18/Social-Network/issues"
+  },
+  "homepage": "https://github.com/willyhuang18/Social-Network#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.3",
+    "node": "^17.4.0"
+  }
+}
