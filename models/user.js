@@ -32,3 +32,9 @@ const usersSchema = new Schema(
     id: false
     }
 )
+
+
+// using virtual method to count the friends
+usersSchema.virtual('friendCount').get(function() {
+    return this.friends.length;
+})
