@@ -58,4 +58,20 @@ module.exports ={
         })
         .catch(err => res.status(400).json(err));
     },
+    
+    // adding the friend by ID
+    addFriend(req, res) {
+        Users.findOneAndUpdate({_id: req.params.id}, {$push: { friends: req.params.friendId}}, {new: true})
+        .populate({path: 'friends', select: ('-__v')})
+        .select('-__v')
+        .then(response => {
+            if (!response) {
+                res.status(404).json({message: 'No User is found with this ID!'});
+                return;
+            }
+        res.json(response);
+        })
+        .catch(err => res.json(err));
+    },
+
 };
