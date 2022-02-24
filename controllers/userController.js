@@ -39,11 +39,23 @@ module.exports ={
         Users.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, runValidators: true})
         .then(response => {
             if(!response) {
-                res.status(404).json({message: 'No User with this particular ID!'});
+                res.status(404).json({message: 'No User is found with this ID!'});
                 return;
             }
             res.json(response);
         })
         .catch(err => res.json(err))
+    },
+    // Delete a current user by ID
+    deleteUsers(req, res) {
+        Users.findOneAndDelete({_id: req.params.id})
+        .then(response => {
+            if(!response) {
+                res.status(404).json({message: 'No User is found with this ID!'});
+                return;
+            }
+            res.json(response);
+        })
+        .catch(err => res.status(400).json(err));
     },
 };
