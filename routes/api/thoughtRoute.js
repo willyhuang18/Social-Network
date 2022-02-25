@@ -21,4 +21,7 @@ router.route('/:id').get(getThoughtsById).put(updateThoughts).delete(deleteThoug
 //post route for create new thought
 router.route('/:userId').post(createThoughts);
 
+//post route for create new reaction
+router.route('/:thoughtId/reactions').post(addReaction);
+
 module.exports = router;
