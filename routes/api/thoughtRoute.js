@@ -18,5 +18,7 @@ router.route('/').get(getAllThoughts);
 //indicate the route for thoughts by ID 
 router.route('/:id').get(getThoughtsById).put(updateThoughts).delete(deleteThoughts); 
 
+//post route for create new thought
+router.route('/:userId').post(createThoughts);
 
 module.exports = router;
