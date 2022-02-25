@@ -6,5 +6,9 @@ const apiRoutes = require('./api');
 // tell express to use api route
 router.use('/api', apiRoutes);
 
-// Module exports router
+router.use((req, res) => {
+    res.status(404).send(console.log('There is error with the route'));
+  });
+
+
 module.exports = router;
